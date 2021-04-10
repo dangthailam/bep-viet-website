@@ -1,0 +1,150 @@
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: #121212;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    background-position: -380px 0;
+  }
+}
+
+body > nav {
+  -webkit-box-flex: 0;
+      -ms-flex: 0;
+          flex: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+body > nav * {
+  color: #f0f0f0;
+}
+
+body > nav *:hover {
+  color: #f0f0f0;
+}
+
+body > .main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+  background-image: url(./images/background.jpg);
+  background-repeat: no-repeat;
+  background-position: -300px 0;
+}
+
+body > .main > div > section {
+  background-color: rgba(235, 235, 235, 0.7);
+  padding: 0.5rem;
+}
+
+body > .main #menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body > .main #menu .left-side {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+@media screen and (max-width: 600px) {
+  body > .main #menu .left-side {
+    display: none;
+  }
+}
+
+body > .main #menu .right-side {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  overflow: auto;
+}
+
+body > .main #menu .right-side > * {
+  background-color: rgba(235, 235, 235, 0.7);
+  margin-bottom: 1rem;
+  padding: 20px;
+}
+
+body > .main #menu .right-side section {
+  margin-bottom: 1rem;
+}
+
+body > .main #menu .right-side section .section-name {
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+}
+
+body > .main #menu .right-side section .dish {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body > .main #menu .right-side section .dish .dots {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border-bottom: 1px dotted;
+  height: 18px;
+}
+
+body > .main #menu .right-side section .dish .dish-price {
+  text-align: right;
+}
+
+body > .main #order {
+  -webkit-box-shadow: inset 0 30px 60px -12px rgba(82, 39, 10, 0.12), inset 0 18px 36px -18px rgba(0, 0, 0, 0.2);
+          box-shadow: inset 0 30px 60px -12px rgba(82, 39, 10, 0.12), inset 0 18px 36px -18px rgba(0, 0, 0, 0.2);
+  border-radius: 7px;
+}
+
+body > .main #order .col {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body > .main #order a {
+  width: 100px;
+  height: 100px;
+  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-size: cover;
+}
+
+body > .main #order a.deliveroo-logo {
+  background-image: url(./images/deliveroo-logo.png);
+}
+
+body > .main #order a.uber-eats-logo {
+  background-image: url(./images/uber-eats-logo.png);
+}
+
+body > .main #order a.just-eat-logo {
+  background-image: url(./images/Just-Eat-logo.png);
+}
+/*# sourceMappingURL=style.css.map */
