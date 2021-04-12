@@ -3,6 +3,27 @@ html {
   scroll-behavior: smooth;
 }
 
+.display-desktop {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.display-mobile {
+  display: none !important;
+}
+
+@media only screen and (pointer: coarse) and (max-width: 1024px), screen and (max-width: 992px) {
+  .display-desktop {
+    display: none !important;
+  }
+  .display-mobile {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+}
+
 body {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13,34 +34,6 @@ body {
           flex-direction: column;
   width: 100vw;
   font-family: Arial, Helvetica, sans-serif;
-}
-
-body > .navbar {
-  -webkit-box-flex: 0;
-      -ms-flex: 0;
-          flex: 0;
-  text-transform: uppercase;
-  background: #fff;
-  width: 100%;
-  position: fixed !important;
-  top: 0;
-  z-index: 3;
-}
-
-body > .navbar .navbar-brand h2 {
-  font-size: calc((1.7 - 1) * 1.2vw + 1rem);
-}
-
-body > .navbar .nav-item {
-  font-size: calc((.9 - 1) * 1.2vw + 1rem);
-}
-
-body > .navbar .nav-item.active {
-  text-decoration: underline;
-}
-
-body > .navbar * {
-  color: #af524b !important;
 }
 
 body main {
@@ -137,6 +130,10 @@ body .content-section .block-content .small-content {
 
 body .content-section .block-content hr {
   background-color: #000;
+}
+
+body #menu.menu-display-mobile {
+  padding-top: 135px;
 }
 
 body #access {

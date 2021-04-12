@@ -9,19 +9,21 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./navbar.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Oswald&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-        </script>
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-        </script>
+    </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-        </script>
+    </script>
     <script>
         let menu;
+        let isMenuOpened = false;
 
         function init(e) {
             menu = Array.from(document.querySelectorAll('.nav-item .nav-link'))
@@ -35,11 +37,16 @@
                         section: el
                     };
                 });
+
+            detectSmallScreen();
         }
 
         function scrollInto(id) {
             const el = document.querySelector(id);
-            window.scroll(0, el.offsetTop)
+            window.scroll(0, el.offsetTop);
+            if (isMenuOpened) {
+                toggleMenu(document.querySelector('#burger-btn'));
+            }
         }
 
         function checkCurrentPosition() {
@@ -58,38 +65,85 @@
             }
             el.menuItem.classList.add('active');
         }
+
+        function toggleMenu(btn) {
+            document.body.classList.toggle('header--menu-open');
+            btn.classList.toggle('burger--active');
+            isMenuOpened = btn.classList.contains('burger--active');
+        }
+
+        function detectSmallScreen() {
+            if (window.innerWidth > 992) {
+                document.body.classList.remove('header--menu-open');
+                document.querySelector('#burger-btn').classList.remove('burger--active');
+                document.querySelector('#menu').classList.remove('menu-display-mobile');
+            } else {
+                document.querySelector('#menu').classList.add('menu-display-mobile');
+            }
+        }
     </script>
 </head>
 
-<body onload="init(), checkCurrentPosition()" onscroll="checkCurrentPosition()">
-    <nav class="navbar navbar-expand-lg">
+<body onload="init(), checkCurrentPosition()" onresize="detectSmallScreen()" onscroll="checkCurrentPosition()">
+    <nav class="navbar navbar-expand-lg display-desktop">
         <a class="navbar-brand" href="#">
             <h2>Bep Viet Colombes</h2>
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation-bar"
-            aria-controls="navigation-bar" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
         <div class="collapse navbar-collapse" id="navigation-bar">
             <ul class="navbar-nav mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)" data-target="#order" onclick="scrollInto('#order')">Commander</a>
+                    <a class="nav-link" href="javascript:void(0)" data-target="#order"
+                        onclick="scrollInto('#order')">Commander</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)" data-target="#menu" onclick="scrollInto('#menu')">Menu</a>
+                    <a class="nav-link" href="javascript:void(0)" data-target="#menu"
+                        onclick="scrollInto('#menu')">Menu</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)" data-target="#contact" onclick="scrollInto('#contact')">Horaire d'ouverture</a>
+                    <a class="nav-link" href="javascript:void(0)" data-target="#contact"
+                        onclick="scrollInto('#contact')">Horaire</a>
                 </li>
             </ul>
         </div>
     </nav>
+    <nav class="navbar navbar-expand-lg display-mobile">
+        <a class="navbar-brand" href="#">
+            <h2>Bep Viet Colombes</h2>
+        </a>
+        <button onclick="toggleMenu(this)" id="burger-btn" class="header-burger-btn burger" data-test="header-burger">
+            <span class="d-none">Open Menu</span>
+            <span class="d-none">Close Menu</span>
+            <div class="burger-box">
+                <div class="burger-inner header-menu-icon-doubleLineHamburger">
+                    <div class="top-bun"></div>
+                    <div class="patty"></div>
+                    <div class="bottom-bun"></div>
+                </div>
+            </div>
+        </button>
+    </nav>
+    <div class="header-menu display-mobile">
+        <div class="header-menu-bg"></div>
+        <div class="header-menu-nav">
+            <nav class="header-menu-nav-list">
+                <div class="container header-menu-nav-item">
+                    <a href="javascript:void(0)" data-target="#order" onclick="scrollInto('#order')">Commander</a>
+                </div>
+                <div class="container header-menu-nav-item">
+                    <a href="javascript:void(0)" data-target="#menu" onclick="scrollInto('#menu')">Menu</a>
+                </div>
+                <div class="container header-menu-nav-item">
+                    <a href="javascript:void(0)" data-target="#contact" onclick="scrollInto('#contact')">Horaire</a>
+                </div>
+            </nav>
+        </div>
+    </div>
     <main>
         <div id="order" class="backdrop-wrapper">
             <img src="./images/backdrop-menu.jpg" alt="" srcset="">
             <div class="order-wrapper">
-                <div>
+                <div class="display-desktop">
                     <div class="order-content">
                         <div class="phone-number d-flex align-items-center justify-content-center text-center">
                             Appelez <br> 01.23.45.67.89
@@ -104,6 +158,9 @@
                     <div class="order-content">
                         <img src="./images/Just-Eat-logo.png" alt="">
                     </div>
+                </div>
+                <div class="display-mobile">
+
                 </div>
             </div>
         </div>
