@@ -13,36 +13,55 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Oswald&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-    </script>
+        </script>
     <script>
-        // Initialize and add the map
-        function initMap() {
-            // The location of Uluru
-            const uluru = {
-                lat: -25.344,
-                lng: 131.036
-            };
-            // The map, centered at Uluru
-            const map = new google.maps.Map(document.getElementById("access"), {
-                zoom: 4,
-                center: uluru,
+        let menu;
+
+        function init(e) {
+            menu = Array.from(document.querySelectorAll('.nav-item .nav-link'))
+                .map(a => {
+                    const href = a.dataset.target;
+                    const el = document.querySelector(href);
+                    return {
+                        id: href,
+                        top: el.offsetTop,
+                        menuItem: a.parentElement,
+                        section: el
+                    };
+                });
+        }
+
+        function scrollInto(id) {
+            const el = document.querySelector(id);
+            window.scroll(0, el.offsetTop)
+        }
+
+        function checkCurrentPosition() {
+            if (!menu) return;
+            let el = menu.find(m => {
+                return m.top + m.section.getBoundingClientRect().height > window.scrollY
             });
-            // The marker, positioned at Uluru
-            const marker = new google.maps.Marker({
-                position: uluru,
-                map: map,
-            });
+            if (!el) {
+                el = menu[0]; // first section
+            } else if (window.scrollY + window.innerHeight >= document.body.offsetHeight) {
+                el = menu[menu.length - 1]; // last section
+            }
+            const activeMenu = menu.find(m => m.menuItem.className.includes('active'));
+            if (activeMenu && activeMenu.menuItem.getAttribute('href') !== el.id) {
+                activeMenu.menuItem.classList.remove('active');
+            }
+            el.menuItem.classList.add('active');
         }
     </script>
 </head>
 
-<body>
+<body onload="init(), checkCurrentPosition()" onscroll="checkCurrentPosition()">
     <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="#">
             <h2>Bep Viet Colombes</h2>
@@ -55,19 +74,13 @@
         <div class="collapse navbar-collapse" id="navigation-bar">
             <ul class="navbar-nav mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="#order">Commander</a>
+                    <a class="nav-link" href="javascript:void(0)" data-target="#order" onclick="scrollInto('#order')">Commander</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#menu">Menu</a>
+                    <a class="nav-link" href="javascript:void(0)" data-target="#menu" onclick="scrollInto('#menu')">Menu</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#access">Acces</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#times">Horaire d'ouverture</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Nous contacter</a>
+                    <a class="nav-link" href="javascript:void(0)" data-target="#contact" onclick="scrollInto('#contact')">Horaire d'ouverture</a>
                 </li>
             </ul>
         </div>
@@ -76,19 +89,21 @@
         <div id="order" class="backdrop-wrapper">
             <img src="./images/backdrop-menu.jpg" alt="" srcset="">
             <div class="order-wrapper">
-                <div class="order-content">
-                    <div class="phone-number d-flex align-items-center justify-content-center text-center">
-                        Appelez <br> 01.23.45.67.89
+                <div>
+                    <div class="order-content">
+                        <div class="phone-number d-flex align-items-center justify-content-center text-center">
+                            Appelez <br> 01.23.45.67.89
+                        </div>
                     </div>
-                </div>
-                <div class="order-content">
-                    <img src="./images/uber-eats-logo.png" alt="">
-                </div>
-                <div class="order-content">
-                    <img src="./images/deliveroo-logo.png" alt="">
-                </div>
-                <div class="order-content">
-                    <img src="./images/Just-Eat-logo.png" alt="">
+                    <div class="order-content">
+                        <img src="./images/uber-eats-logo.png" alt="">
+                    </div>
+                    <div class="order-content">
+                        <img src="./images/deliveroo-logo.png" alt="">
+                    </div>
+                    <div class="order-content">
+                        <img src="./images/Just-Eat-logo.png" alt="">
+                    </div>
                 </div>
             </div>
         </div>
@@ -465,7 +480,6 @@
                 </div>
             </div>
         </div>
-        <div id="access"></div>
         <div id="contact" class="container">
             <div class="row">
                 <div class="col-lg-3 col-sm-12">
@@ -476,9 +490,9 @@
                     <div class="block-content">
                         <h4>Horaires d'ouverture</h4>
                         <p class="open-hours">
-                            Tuesday - Sunday: 11h00 - 21h00
+                            Lundi - Samedi: 11h00 - 21h00
                             <br>
-                            Monday: Fermé
+                            Dimanche: Fermé
                         </p>
                     </div>
                     <div class="block-content">
@@ -496,15 +510,14 @@
                 <div class="col-lg-5 col-sm-12">
                     <form action="">
                         <fieldset>
-                            <legend>Name *</legend>
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <input type="text" id="form-lastname">
                                     <label for="form-lastname">Nom</label>
+                                    <input type="text" id="form-lastname">
                                 </div>
                                 <div class="col-lg-6">
-                                    <input type="text" id="form-firstname">
                                     <label for="form-firstname">Prénom</label>
+                                    <input type="text" id="form-firstname">
                                 </div>
                             </div>
                         </fieldset>
@@ -532,12 +545,6 @@
             </div>
         </div>
     </main>
-
-    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpVxhYkC0Idpphuol1DlGyCfxK2ztVXQQ&callback=initMap&libraries=&v=weekly"
-        async>
-    </script>
 </body>
 
 </html>
