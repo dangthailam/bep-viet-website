@@ -144,12 +144,27 @@ body .content-section .block-content hr {
   background-color: #000;
 }
 
+body #posts {
+  padding-top: 2rem;
+}
+
+body #posts img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+body #posts p {
+  border: 1px solid;
+  padding: 1rem;
+}
+
 body #menu {
   font-family: 'Courgette', cursive;
 }
 
 body #menu.menu-display-mobile {
-  padding-top: 135px;
+  padding-top: 50px;
 }
 
 body #access {

@@ -127,11 +127,26 @@ body {
         }
     }
 
+    #posts {
+        padding-top: 2rem;
+
+        img {
+            width: 100px;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            border: 1px solid;
+            padding: 1rem;
+        }
+    }
+
     #menu {
         font-family: 'Courgette', cursive;
-        
+
         &.menu-display-mobile {
-            padding-top: 135px;
+            padding-top: 50px;
         }
     }
 
