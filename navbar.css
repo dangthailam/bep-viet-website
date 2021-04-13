@@ -18,6 +18,7 @@ body > .navbar {
   position: fixed !important;
   top: 0;
   z-index: 3;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body > .navbar.display-mobile {
