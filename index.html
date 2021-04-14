@@ -55,6 +55,10 @@
             }
         }
 
+        function scrollUp() {
+            window.scroll(0, 0);
+        }
+
         function checkCurrentPosition() {
             if (!menu) return;
             let el = menu.find(m => {
@@ -70,6 +74,12 @@
                 activeMenu.menuItem.classList.remove('active');
             }
             el.menuItem.classList.add('active');
+
+            if (window.scrollY > 0) {
+                document.querySelector('#arrow-up').classList.remove('d-none');
+            } else {
+                document.querySelector('#arrow-up').classList.add('d-none');
+            }
         }
 
         function toggleMenu(btn) {
@@ -146,6 +156,13 @@
         </div>
     </div>
     <main>
+        <button id="arrow-up" class="arrow-up btn btn-default" onclick="scrollUp()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-arrow-up"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+            </svg>
+        </button>
         <div id="order" class="backdrop-wrapper">
             <img src="./images/backdrop-menu.jpg" alt="" srcset="">
             <div class="order-wrapper">
@@ -204,8 +221,8 @@
                             <div class="col-lg-2"></div>
                             <div class="col-lg-5 col-sm-12">
                                 <div class="block-content">
-                                    <p class="large-content">Nem au poulet (x2) <span
-                                            class="small-content">- 3.90€</span>
+                                    <p class="large-content">Nem au poulet (x2) <span class="small-content">-
+                                            3.90€</span>
                                     </p>
                                     <p class="small-content">
                                         feuille de riz, viande de poulet, champignons noirs, vermicelles de riz et
@@ -221,11 +238,11 @@
                         <div class="row">
                             <div class="col-lg-5 col-sm-12">
                                 <div class="block-content">
-                                    <p class="large-content">Ravioli frit aux crevettes (x4) <span
-                                            class="small-content">- 4.30€</span>
+                                    <p class="large-content">Nem végétarien (x3) <span class="small-content">-
+                                            3.90€</span>
                                     </p>
                                     <p class="small-content">
-                                        feuilles de pâte, crevettes, champignons noires et petits légumes
+                                        feuille de riz, champignons noirs, vermicelles de riz et petits légumes
                                     </p>
                                 </div>
                                 <div class="block-content">
@@ -235,37 +252,8 @@
                             <div class="col-lg-2"></div>
                             <div class="col-lg-5 col-sm-12">
                                 <div class="block-content">
-                                    <p class="large-content">Beignet de crevette (x3) <span
-                                            class="small-content">- 3.80€</span>
-                                    </p>
-                                    <p class="small-content">
-                                        crevettes crues, pâte frite
-                                    </p>
-                                </div>
-                                <div class="block-content">
-                                    <hr>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-5 col-sm-12">
-                                <div class="block-content">
-                                    <p class="large-content">Bouchée aux crevettes/porc à la vapeur(x4) <span
-                                            class="small-content">- 4.50€</span>
-                                    </p>
-                                    <p class="small-content">
-                                        viande de porc/crevettes crues, pâte farine, petits légumes
-                                    </p>
-                                </div>
-                                <div class="block-content">
-                                    <hr>
-                                </div>
-                            </div>
-                            <div class="col-lg-2"></div>
-                            <div class="col-lg-5 col-sm-12">
-                                <div class="block-content">
-                                    <p class="large-content">Nem au crevette (x2) <span
-                                            class="small-content">- 4.80€</span>
+                                    <p class="large-content">Nem au crevette (x2) <span class="small-content">-
+                                            4.80€</span>
                                     </p>
                                     <p class="small-content">
                                         feuille de riz, crevettes, champignons noirs, vermicelles de riz et petits
@@ -280,11 +268,11 @@
                         <div class="row">
                             <div class="col-lg-5 col-sm-12">
                                 <div class="block-content">
-                                    <p class="large-content">Nem végétarien (x3) <span
-                                            class="small-content">- 3.90€</span>
+                                    <p class="large-content">Beignet de crevette (x3) <span class="small-content">-
+                                            3.80€</span>
                                     </p>
                                     <p class="small-content">
-                                        feuille de riz, champignons noirs, vermicelles de riz et petits légumes
+                                        crevettes crues, pâte frite
                                     </p>
                                 </div>
                                 <div class="block-content">
@@ -309,11 +297,40 @@
                         <div class="row">
                             <div class="col-lg-5 col-sm-12">
                                 <div class="block-content">
+                                    <p class="large-content">Ravioli frit aux crevettes (x4) <span
+                                            class="small-content">- 4.30€</span>
+                                    </p>
+                                    <p class="small-content">
+                                        feuilles de pâte, crevettes, champignons noires et petits légumes
+                                    </p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
                                     <p class="large-content">Ravioli crevette à la vapeur (x4) <span
                                             class="small-content">- 4.50€</span>
                                     </p>
                                     <p class="small-content">
                                         crevettes crues, pâte farine, petits légumes
+                                    </p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Bouchée aux crevettes/porc à la vapeur(x4) <span
+                                            class="small-content">- 4.50€</span>
+                                    </p>
+                                    <p class="small-content">
+                                        viande de porc/crevettes crues, pâte farine, petits légumes
                                     </p>
                                 </div>
                                 <div class="block-content">
@@ -360,8 +377,8 @@
                         <div class="row">
                             <div class="col-lg-5 col-sm-12">
                                 <div class="block-content">
-                                    <p class="large-content">Bo bun cha gio aux crevettes <span
-                                            class="small-content">- 9.90€</span>
+                                    <p class="large-content">Bo bun cha gio aux crevettes <span class="small-content">-
+                                            9.90€</span>
                                     </p>
                                     <p class="small-content">
                                         crevettes, vermicelle, pousse de soja, coriandre, salade, cacahuète et nems
@@ -374,8 +391,8 @@
                             <div class="col-lg-2"></div>
                             <div class="col-lg-5 col-sm-12">
                                 <div class="block-content">
-                                    <p class="large-content">Bo bun vegetarien <span
-                                            class="small-content">- 9.90€</span>
+                                    <p class="large-content">Bo bun vegetarien <span class="small-content">-
+                                            9.90€</span>
                                     </p>
                                     <p class="small-content">
                                         vermicelle, pousse de soja, coriandre, salade, cacahuète et nems végétariens
@@ -389,8 +406,8 @@
                         <div class="row">
                             <div class="col-lg-5 col-sm-12">
                                 <div class="block-content">
-                                    <p class="large-content">Bo bun boeuf grillé <span
-                                            class="small-content">- 10.50€</span>
+                                    <p class="large-content">Bo bun boeuf grillé <span class="small-content">-
+                                            10.50€</span>
                                     </p>
                                     <p class="small-content">
                                         boeuf grillé, vermicelle, pousse de soja, coriandre, salade, cacahuète et nems
@@ -403,8 +420,8 @@
                             <div class="col-lg-2"></div>
                             <div class="col-lg-5 col-sm-12">
                                 <div class="block-content">
-                                    <p class="large-content">Bo bun poulet grillé <span
-                                            class="small-content">- 10.50€</span>
+                                    <p class="large-content">Bo bun poulet grillé <span class="small-content">-
+                                            10.50€</span>
                                     </p>
                                     <p class="small-content">
                                         poulet grillé, vermicelle, pousse de soja, coriandre, salade, cacahuète et nems
@@ -418,8 +435,8 @@
                         <div class="row">
                             <div class="col-lg-5 col-sm-12">
                                 <div class="block-content">
-                                    <p class="large-content">Bo bun thit nuong <span
-                                            class="small-content">- 10.50€</span>
+                                    <p class="large-content">Bo bun thit nuong <span class="small-content">-
+                                            10.50€</span>
                                     </p>
                                     <p class="small-content">
                                         porc grillé, vermicelle, pousse de soja, coriandre, salade, cacahuète et nems
@@ -654,7 +671,6 @@
             </div>
         </div>
         <div class="d-flex align-items-center justify-content-center">
-            <img src="./images/bep-viet-logo.png" width="200px" alt="">
         </div>
         <div id="contact" class="container">
             <div class="row">
@@ -681,7 +697,9 @@
                     </div>
                 </div>
                 <div class="col-lg-1 col-sm-12"></div>
-                <div class="col-lg-2 col-sm-12"></div>
+                <div class="col-lg-2 col-sm-12 d-flex justify-content-center">
+                    <img src="./images/bep-viet-logo.png" width="100%" height="auto" alt="">
+                </div>
                 <div class="col-lg-1 col-sm-12"></div>
                 <div class="col-lg-5 col-sm-12">
                     <form action="">
