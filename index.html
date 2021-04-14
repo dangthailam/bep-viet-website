@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="./navbar.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="./images/bep-viet-ico.png" />
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
@@ -43,7 +45,11 @@
 
         function scrollInto(id) {
             const el = document.querySelector(id);
-            window.scroll(0, el.offsetTop);
+            let top = el.offsetTop;
+            if (id !== '#contact') {
+                top -= 85;
+            }
+            window.scroll(0, top);
             if (isMenuOpened) {
                 toggleMenu(document.querySelector('#burger-btn'));
             }
@@ -76,11 +82,9 @@
             if (window.innerWidth > 992) {
                 document.body.classList.remove('header--menu-open');
                 document.querySelector('#burger-btn').classList.remove('burger--active');
-                document.querySelector('#menu').classList.remove('menu-display-mobile');
-                document.querySelector('#order').classList.remove('order-display-mobile');
+                document.querySelector('main').classList.remove('main-display-mobile');
             } else {
-                document.querySelector('#menu').classList.add('menu-display-mobile');
-                document.querySelector('#order').classList.add('order-display-mobile');
+                document.querySelector('main').classList.add('main-display-mobile');
             }
         }
     </script>
@@ -166,425 +170,483 @@
             <p class="text-center">
                 Appelez: 045435354
                 <br>
-                pour toutes commandes > 15e à Colombes 
+                pour toutes commandes > 15e à Colombes
                 <br>
                 à partir de 18H30 - 21H
                 <br>
                 Livraison gratuite
             </p>
         </div>
-        <div id="menu" class="main-content container">
-            <div class="menu-section">
-                <div class="content-section">
-                    <p class="section-name">Entrée</p>
-                    <div class="row">
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Nem au porc (x2) - 3.90€</p>
-                                <p class="small-content">
-                                    feuille de riz, viande de porc, champignons noirs, vermicelles de riz et petits
-                                    légumes
-                                </p>
-                            </div>
-                            <div class="block-content">
-                                <hr>
-                            </div>
-                        </div>
-                        <div class="col-lg-2"></div>
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Nem au poulet (x2) - 3.90€</p>
-                                <p class="small-content">
-                                    feuille de riz, viande de poulet, champignons noirs, vermicelles de riz et petits
-                                    légumes
-                                </p>
-                            </div>
-                            <div class="block-content">
-                                <hr>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Ravioli frit aux crevettes (x4) - 4.30€</p>
-                                <p class="small-content">
-                                    feuilles de pâte, crevettes, champignons noires et petits légumes
-                                </p>
-                            </div>
-                            <div class="block-content">
-                                <hr>
-                            </div>
-                        </div>
-                        <div class="col-lg-2"></div>
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Beignet de crevette (x3) - 3.80€</p>
-                                <p class="small-content">
-                                    crevettes crues, pâte frite
-                                </p>
-                            </div>
-                            <div class="block-content">
-                                <hr>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Bouchée aux crevettes/porc à la vapeur(x4) - 4.50€</p>
-                                <p class="small-content">
-                                    viande de porc/crevettes crues, pâte farine, petits légumes
-                                </p>
-                            </div>
-                            <div class="block-content">
-                                <hr>
-                            </div>
-                        </div>
-                        <div class="col-lg-2"></div>
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Nem au crevette (x2) - 4.80€</p>
-                                <p class="small-content">
-                                    feuille de riz, crevettes, champignons noirs, vermicelles de riz et petits légumes
-                                </p>
-                            </div>
-                            <div class="block-content">
-                                <hr>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Nem végétarien (x3) - 3.90€</p>
-                                <p class="small-content">
-                                    feuille de riz, champignons noirs, vermicelles de riz et petits légumes
-                                </p>
-                            </div>
-                            <div class="block-content">
-                                <hr>
-                            </div>
-                        </div>
-                        <div class="col-lg-2"></div>
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Beignet de crevette au riz vert (x3) - 4.80€</p>
-                                <p class="small-content">
-                                    crevettes crues, riz vert, pâte farine
-                                </p>
-                            </div>
-                            <div class="block-content">
-                                <hr>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Ravioli crevette à la vapeur (x4) - 4.50€</p>
-                                <p class="small-content">
-                                    crevettes crues, pâte farine, petits légumes
-                                </p>
-                            </div>
-                            <div class="block-content">
-                                <hr>
-                            </div>
-                        </div>
-                        <div class="col-lg-2"></div>
-                        <div class="col-lg-5 col-sm-12"></div>
-                    </div>
+        <div id="menu" class="main-content">
+            <div class="container">
+
+                <div class="section-title d-flex justify-content-center align-items-center p-2 flex-column">
+                    <h4>Menu</h4>
+                    <img src="./images/separator.png" width="200px" alt="">
                 </div>
-                <div class="content-section">
-                    <p class="section-name">Bo Bun</p>
-                    <div class="row">
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Bo bun cha gio ( boeuf saute oignon) - 9.90€</p>
-                                <p class="small-content">
-                                    boeuf sauté oignon, vermicelle, pousse de soja, coriandre, salade, cacahuète et nems
-                                </p>
+                <div class="menu-section">
+                    <div class="content-section">
+                        <p class="section-name">Entrée</p>
+                        <div class="row">
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Nem au porc (x2) <span class="small-content">- 3.90€</span>
+                                    </p>
+                                    <p class="small-content">
+                                        feuille de riz, viande de porc, champignons noirs, vermicelles de riz et petits
+                                        légumes
+                                    </p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
                             </div>
-                            <div class="block-content">
-                                <hr>
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Nem au poulet (x2) <span
+                                            class="small-content">- 3.90€</span>
+                                    </p>
+                                    <p class="small-content">
+                                        feuille de riz, viande de poulet, champignons noirs, vermicelles de riz et
+                                        petits
+                                        légumes
+                                    </p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-2"></div>
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Bo bun cha gio special ( boeuf + crevette) - 10.50€</p>
-                                <p class="small-content">
-                                    boeuf sauté oignon, crevettes, vermicelle, pousse de soja, coriandre, salade,
-                                    cacahuète et nems
-                                </p>
+                        <div class="row">
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Ravioli frit aux crevettes (x4) <span
+                                            class="small-content">- 4.30€</span>
+                                    </p>
+                                    <p class="small-content">
+                                        feuilles de pâte, crevettes, champignons noires et petits légumes
+                                    </p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
                             </div>
-                            <div class="block-content">
-                                <hr>
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Beignet de crevette (x3) <span
+                                            class="small-content">- 3.80€</span>
+                                    </p>
+                                    <p class="small-content">
+                                        crevettes crues, pâte frite
+                                    </p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Bouchée aux crevettes/porc à la vapeur(x4) <span
+                                            class="small-content">- 4.50€</span>
+                                    </p>
+                                    <p class="small-content">
+                                        viande de porc/crevettes crues, pâte farine, petits légumes
+                                    </p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Nem au crevette (x2) <span
+                                            class="small-content">- 4.80€</span>
+                                    </p>
+                                    <p class="small-content">
+                                        feuille de riz, crevettes, champignons noirs, vermicelles de riz et petits
+                                        légumes
+                                    </p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Nem végétarien (x3) <span
+                                            class="small-content">- 3.90€</span>
+                                    </p>
+                                    <p class="small-content">
+                                        feuille de riz, champignons noirs, vermicelles de riz et petits légumes
+                                    </p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Beignet de crevette au riz vert (x3) <span
+                                            class="small-content">- 4.80€</span>
+                                    </p>
+                                    <p class="small-content">
+                                        crevettes crues, riz vert, pâte farine
+                                    </p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Ravioli crevette à la vapeur (x4) <span
+                                            class="small-content">- 4.50€</span>
+                                    </p>
+                                    <p class="small-content">
+                                        crevettes crues, pâte farine, petits légumes
+                                    </p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-5 col-sm-12"></div>
+                        </div>
+                    </div>
+                    <div class="content-section">
+                        <p class="section-name">Bo Bun</p>
+                        <div class="row">
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Bo bun cha gio ( boeuf saute oignon) <span
+                                            class="small-content">- 9.90€</span>
+                                    </p>
+                                    <p class="small-content">
+                                        boeuf sauté oignon, vermicelle, pousse de soja, coriandre, salade, cacahuète et
+                                        nems
+                                    </p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Bo bun cha gio special ( boeuf + crevette) <span
+                                            class="small-content">- 10.50€</span>
+                                    </p>
+                                    <p class="small-content">
+                                        boeuf sauté oignon, crevettes, vermicelle, pousse de soja, coriandre, salade,
+                                        cacahuète et nems
+                                    </p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Bo bun cha gio aux crevettes <span
+                                            class="small-content">- 9.90€</span>
+                                    </p>
+                                    <p class="small-content">
+                                        crevettes, vermicelle, pousse de soja, coriandre, salade, cacahuète et nems
+                                    </p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Bo bun vegetarien <span
+                                            class="small-content">- 9.90€</span>
+                                    </p>
+                                    <p class="small-content">
+                                        vermicelle, pousse de soja, coriandre, salade, cacahuète et nems végétariens
+                                    </p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Bo bun boeuf grillé <span
+                                            class="small-content">- 10.50€</span>
+                                    </p>
+                                    <p class="small-content">
+                                        boeuf grillé, vermicelle, pousse de soja, coriandre, salade, cacahuète et nems
+                                    </p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Bo bun poulet grillé <span
+                                            class="small-content">- 10.50€</span>
+                                    </p>
+                                    <p class="small-content">
+                                        poulet grillé, vermicelle, pousse de soja, coriandre, salade, cacahuète et nems
+                                    </p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Bo bun thit nuong <span
+                                            class="small-content">- 10.50€</span>
+                                    </p>
+                                    <p class="small-content">
+                                        porc grillé, vermicelle, pousse de soja, coriandre, salade, cacahuète et nems
+                                    </p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-5 col-sm-12"></div>
+                        </div>
+                    </div>
+                    <div class="content-section">
+                        <p class="section-name">Plats</p>
+                        <div class="row">
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Soupe Pho boeuf <span class="small-content">- 9.90€</span>
+                                    </p>
+                                    <p class="small-content">
+                                        nouilles de riz, boeuf saignant, boeuf cuit, boulettes de boeuf
+                                    </p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Boeuf sauté avec riz blanc/nouilles sautes/riz cantonnais -
+                                        <span class="small-content">10.50€</span>
+                                    </p>
+                                    <p class="small-content">
+                                        boeuf sauté oignon, riz nature/nouilles sautés/riz cantonnais
+                                    </p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Poulet curry avec riz blanc/nouilles sautes/riz cantonnais
+                                        -
+                                        <span class="small-content">10.50€</span>
+                                    </p>
+                                    <p class="small-content">
+                                        poulet et lait de coco,, riz nature/nouilles sautés/riz cantonnais
+                                    </p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Pad thai au poulet <span class="small-content">-
+                                            10.50€</span>
+                                    </p>
+                                    <p class="small-content">
+                                        nouilles de riz, poulet, oignon, pousse de soja, cacahuète
+                                    </p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Pad thai au crevettes <span class="small-content">-
+                                            10.90€</span></p>
+                                    <p class="small-content">
+                                        nouilles de riz, crevettes, oignon, pousse de soja, cacahuète
+                                    </p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-5 col-sm-12"></div>
+                        </div>
+                    </div>
+                    <div class="content-section">
+                        <p class="section-name">Accompagnements</p>
+                        <div class="row">
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Riz nature <span class="small-content">- 2.0€</span></p>
+                                    <p class="small-contenttion"></p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Riz cantonnais <span class="small-content">- 2.90€</span>
+                                    </p>
+                                    <p class="small-content"></p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Nouilles sautés <span class="small-content">- 2.90€</span>
+                                    </p>
+                                    <p class="small-content"></p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Salade de chou <span class="small-content">- 2.90€</span>
+                                    </p>
+                                    <p class="small-content"></p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Bo bun cha gio aux crevettes - 9.90€</p>
-                                <p class="small-content">
-                                    crevettes, vermicelle, pousse de soja, coriandre, salade, cacahuète et nems
-                                </p>
+                    <div class="content-section">
+                        <p class="section-name">Desserts</p>
+                        <div class="row">
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Perles de coco (x2) <span class="small-content">-
+                                            2.10€</span>
+                                    </p>
+                                    <p class="small-content"></p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
                             </div>
-                            <div class="block-content">
-                                <hr>
-                            </div>
-                        </div>
-                        <div class="col-lg-2"></div>
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Bo bun vegetarien - 9.90€</p>
-                                <p class="small-content">
-                                    vermicelle, pousse de soja, coriandre, salade, cacahuète et nems végétariens
-                                </p>
-                            </div>
-                            <div class="block-content">
-                                <hr>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Bo bun boeuf grillé - 10.50€</p>
-                                <p class="small-content">
-                                    boeuf grillé, vermicelle, pousse de soja, coriandre, salade, cacahuète et nems
-                                </p>
-                            </div>
-                            <div class="block-content">
-                                <hr>
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Salade de fruits <span class="small-content">- 3.10€</span>
+                                    </p>
+                                    <p class="small-content"></p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-2"></div>
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Bo bun poulet grillé - 10.50€</p>
-                                <p class="small-content">
-                                    poulet grillé, vermicelle, pousse de soja, coriandre, salade, cacahuète et nems
-                                </p>
+                        <div class="row">
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Chè ba màu / Chè đậu đỏ bánh lọt <span
+                                            class="small-content">- 3.50€</span></p>
+                                    <p class="small-content"></p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
                             </div>
-                            <div class="block-content">
-                                <hr>
-                            </div>
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-5 col-sm-12"></div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Bo bun thit nuong - 10.50€</p>
-                                <p class="small-content">
-                                    porc grillé, vermicelle, pousse de soja, coriandre, salade, cacahuète et nems
-                                </p>
+                    <div class="content-section">
+                        <p class="section-name">Boissons</p>
+                        <div class="row">
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Cafe au lait glacé <span class="small-content">-
+                                            3.90€</span>
+                                    </p>
+                                    <p class="small-content"></p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
                             </div>
-                            <div class="block-content">
-                                <hr>
-                            </div>
-                        </div>
-                        <div class="col-lg-2"></div>
-                        <div class="col-lg-5 col-sm-12"></div>
-                    </div>
-                </div>
-                <div class="content-section">
-                    <p class="section-name">Plats</p>
-                    <div class="row">
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Soupe Pho boeuf - 9.90€</p>
-                                <p class="small-content">
-                                    nouilles de riz, boeuf saignant, boeuf cuit, boulettes de boeuf
-                                </p>
-                            </div>
-                            <div class="block-content">
-                                <hr>
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Thé abrico <span class="small-content">- 3.0€</span></p>
+                                    <p class="small-contenttion">
+                                    </p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-2"></div>
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Boeuf sauté avec riz blanc/nouilles sautes/riz cantonnais -
-                                    10.50€
-                                </p>
-                                <p class="small-content">
-                                    boeuf sauté oignon, riz nature/nouilles sautés/riz cantonnais
-                                </p>
+                        <div class="row">
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Boissons cannettes et eaux 33cl <span
+                                            class="small-content">- 1.50€</span></p>
+                                    <p class="small-content"></p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
                             </div>
-                            <div class="block-content">
-                                <hr>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Poulet curry avec riz blanc/nouilles sautes/riz cantonnais -
-                                    10.50€
-                                </p>
-                                <p class="small-content">
-                                    poulet et lait de coco,, riz nature/nouilles sautés/riz cantonnais
-                                </p>
-                            </div>
-                            <div class="block-content">
-                                <hr>
-                            </div>
-                        </div>
-                        <div class="col-lg-2"></div>
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Pad thai au poulet - 10.50€</p>
-                                <p class="small-content">
-                                    nouilles de riz, poulet, oignon, pousse de soja, cacahuète
-                                </p>
-                            </div>
-                            <div class="block-content">
-                                <hr>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Pad thai au crevettes - 10.90€</p>
-                                <p class="small-content">
-                                    nouilles de riz, crevettes, oignon, pousse de soja, cacahuète
-                                </p>
-                            </div>
-                            <div class="block-content">
-                                <hr>
-                            </div>
-                        </div>
-                        <div class="col-lg-2"></div>
-                        <div class="col-lg-5 col-sm-12"></div>
-                    </div>
-                </div>
-                <div class="content-section">
-                    <p class="section-name">Accompagnements</p>
-                    <div class="row">
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Riz nature - 2.0€</p>
-                                <p class="small-contenttion"></p>
-                            </div>
-                            <div class="block-content">
-                                <hr>
-                            </div>
-                        </div>
-                        <div class="col-lg-2"></div>
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Riz cantonnais - 2.90€</p>
-                                <p class="small-content"></p>
-                            </div>
-                            <div class="block-content">
-                                <hr>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Nouilles sautés - 2.90€</p>
-                                <p class="small-content"></p>
-                            </div>
-                            <div class="block-content">
-                                <hr>
-                            </div>
-                        </div>
-                        <div class="col-lg-2"></div>
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Salade de chou - 2.90€</p>
-                                <p class="small-content"></p>
-                            </div>
-                            <div class="block-content">
-                                <hr>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="content-section">
-                    <p class="section-name">Desserts</p>
-                    <div class="row">
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Perles de coco (x2) - 2.10€</p>
-                                <p class="small-content"></p>
-                            </div>
-                            <div class="block-content">
-                                <hr>
-                            </div>
-                        </div>
-                        <div class="col-lg-2"></div>
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Salade de fruits - 3.10€</p>
-                                <p class="small-content"></p>
-                            </div>
-                            <div class="block-content">
-                                <hr>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Chè ba màu / Chè đậu đỏ bánh lọt - 3.50€</p>
-                                <p class="small-content"></p>
-                            </div>
-                            <div class="block-content">
-                                <hr>
-                            </div>
-                        </div>
-                        <div class="col-lg-2"></div>
-                        <div class="col-lg-5 col-sm-12"></div>
-                    </div>
-                </div>
-                <div class="content-section">
-                    <p class="section-name">Boissons</p>
-                    <div class="row">
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Cafe au lait glacé - 3.90€</p>
-                                <p class="small-content"></p>
-                            </div>
-                            <div class="block-content">
-                                <hr>
-                            </div>
-                        </div>
-                        <div class="col-lg-2"></div>
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Thé abrico - 3.0€</p>
-                                <p class="small-contenttion">
-                                </p>
-                            </div>
-                            <div class="block-content">
-                                <hr>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Boissons cannettes et eaux 33cl - 1.50€</p>
-                                <p class="small-content"></p>
-                            </div>
-                            <div class="block-content">
-                                <hr>
-                            </div>
-                        </div>
-                        <div class="col-lg-2"></div>
-                        <div class="col-lg-5 col-sm-12">
-                            <div class="block-content">
-                                <p class="large-content">Boissons exotiques - 2.0€</p>
-                                <p class="small-contenttion"></p>
-                            </div>
-                            <div class="block-content">
-                                <hr>
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="block-content">
+                                    <p class="large-content">Boissons exotiques <span class="small-content">-
+                                            2.0€</span>
+                                    </p>
+                                    <p class="small-contenttion"></p>
+                                </div>
+                                <div class="block-content">
+                                    <hr>
+                                </div>
                             </div>
                         </div>
                     </div>

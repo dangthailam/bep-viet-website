@@ -1,5 +1,5 @@
 html {
-  font-size: 20px;
+  font-size: 16px;
   scroll-behavior: smooth;
 }
 
@@ -37,7 +37,25 @@ body {
 }
 
 body main {
-  padding-top: 66px;
+  padding-top: 78.5px;
+}
+
+body main.main-display-mobile {
+  padding-top: 84.5px;
+}
+
+body main.main-display-mobile .backdrop-wrapper .order-wrapper > div {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+body main.main-display-mobile .backdrop-wrapper .order-wrapper .order-content {
+  width: 50%;
+}
+
+body main.main-display-mobile .backdrop-wrapper .order-wrapper .order-content img {
+  width: 65%;
+  height: auto;
 }
 
 body .backdrop-wrapper {
@@ -94,24 +112,6 @@ body .backdrop-wrapper .order-wrapper .order-content img {
   height: 150px;
 }
 
-body .backdrop-wrapper.order-display-mobile .order-wrapper > div {
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-body .backdrop-wrapper.order-display-mobile .order-content {
-  width: 50%;
-}
-
-body .backdrop-wrapper.order-display-mobile .order-content img {
-  width: 65%;
-  height: auto;
-}
-
-body .main-content {
-  padding-top: 66px;
-}
-
 body .main-content .menu-section * {
   color: #000 !important;
 }
@@ -133,11 +133,11 @@ body .content-section .block-content {
 }
 
 body .content-section .block-content .large-content {
-  font-size: calc((1.3 - 1) * 1.2vw + 1rem);
+  font-size: 21px;
 }
 
 body .content-section .block-content .small-content {
-  font-size: calc((.9 - 1) * 1.2vw + 1rem);
+  font-size: 13px;
 }
 
 body .content-section .block-content hr {
@@ -157,14 +157,15 @@ body #posts img {
 body #posts p {
   border: 1px solid;
   padding: 1rem;
+  width: 80%;
 }
 
 body #menu {
-  font-family: 'Courgette', cursive;
+  background-color: #f3f3f3;
 }
 
-body #menu.menu-display-mobile {
-  padding-top: 50px;
+body #menu .content-section {
+  font-family: 'Courgette', cursive;
 }
 
 body #access {
