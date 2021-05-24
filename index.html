@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./navbar.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Miniver&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="./images/bep-viet-ico.png" />
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -697,21 +697,21 @@
                     </div>
                 </div>
                 <div class="col-lg-1 col-sm-12"></div>
-                <div class="col-lg-2 col-sm-12 d-flex justify-content-center">
+                <div class="col-lg-2 col-sm-12 text-center">
                     <img src="./images/bep-viet-logo.png" width="100%" height="auto" alt="">
                 </div>
                 <div class="col-lg-1 col-sm-12"></div>
                 <div class="col-lg-5 col-sm-12">
-                    <form action="">
+                    <form action="email.php" method="POST">
                         <fieldset>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <label for="form-lastname">Nom</label>
-                                    <input type="text" id="form-lastname">
+                                    <input type="text" name="lastname" id="form-lastname">
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="form-firstname">Prénom</label>
-                                    <input type="text" id="form-firstname">
+                                    <input type="text" name="firstname" id="form-firstname">
                                 </div>
                             </div>
                         </fieldset>
@@ -719,7 +719,7 @@
                             <label for="form-email">Email *</label>
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <input type="text" id="form-email">
+                                    <input type="email" required name="email" id="form-email">
                                 </div>
                             </div>
                         </fieldset>
@@ -727,7 +727,7 @@
                             <label for="form-message">Message *</label>
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <textarea type="text" id="form-message"></textarea>
+                                    <textarea type="text" name="message" id="form-message"></textarea>
                                 </div>
                             </div>
                         </fieldset>

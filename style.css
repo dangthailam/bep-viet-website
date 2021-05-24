@@ -138,6 +138,7 @@ body .content-section:not(:last-child) {
 body .content-section p.section-name {
   font-size: calc((.9 - 1) * 1.2vh + 1rem);
   text-transform: uppercase;
+  font-family: 'Miniver', sans-serif;
 }
 
 body .content-section .block-content {
